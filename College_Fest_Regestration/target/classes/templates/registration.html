@@ -1,0 +1,72 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
+<title>GL Company Home Page</title>
+</head>
+<body>
+
+	<div class="container mt-5">
+		<div class="card">
+			<div class="card-header">
+				<h1 style="color: green; text-align: center;"
+					th:text="'Great Learning College Fest'"></h1>
+				<hr>
+				<h3 style="color: red; text-align: center;"
+					th:text="'User Registration  '"></h3>
+			</div>
+			<div class="card-body">
+				<!-- success message -->
+				<div th:if="${param.success}">
+					<div class="alert alert-info">You have successfully register
+						to our College Fest!</div>
+				</div>
+				<div>
+					<form th:action="@{/registration}" th:object="${user}"
+						method="post">
+						<div class="form-group">
+							<label for="firstName">First Name:</label> 
+							<input type="text"  class="form-control" name="title" th:field="*{firstName}"
+								required autofocus="autofocus">
+						</div>
+						<div class="form-group">
+							<label for="lastName">Last Name:</label>
+								<input type="text" class="form-control" name="title" th:field="*{lastName}"
+										required autofocus="autofocus">
+						</div>
+						<div class="form-group">
+							<label for="email">Email:</label>
+								<input type="email" class="form-control" name="title" th:field="*{email}" required
+										autofocus="autofocus">
+						</div>
+						<div class="form-group">
+							<label for="password">Password:</label> 
+								<input type="password" class="form-control" name="title" th:field="*{password}"
+										required autofocus="autofocus">
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary btn-lg">Register</button>
+							<span>Already Registered?<a th:href="@{/login}">Login Here</a></span>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+			<div class="card-footer">
+				<p class="text-center">© Copyright 2023 - Great Learning. All
+					rights reserved.</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
